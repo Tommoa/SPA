@@ -1,0 +1,31 @@
+<dashboard script="js/searchbyidview.js" stylesheet="css/searchbyidstyling.css">
+  <label>Search By ID</label>
+  <row>
+    <panel>
+      <html>
+      <h4> Input A Student ID : </h4> <div id="studentid"/>
+      
+      <h4> Date Range : </h4>
+      <div id="datecontainer">
+        To: <div id="from"/>
+        From: <div id="to"/>
+      </div>
+
+      <h4> Results : </h4>
+      <div id="mycustomview" />
+    
+      <!-- Modal -->
+      <div class="modal fade modal-lg" id="profile-modal" tabindex="-1" role="dialog">
+        <div class="modal-content">
+          <div class="modal-wrapper">
+            <div id="title"> <b> ID : </b> <div id="ID"></div> </div>
+            <div id="header"> <b> Contact Details </b> <div id="contactDetails"></div></div>
+            <div id="header"> <b> History </b> <div id="history"></div> </div>
+          </div>
+        </div>
+      </div>
+
+    </html>
+    </panel>
+  </row>
+</dashboard>

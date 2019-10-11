@@ -1,0 +1,78 @@
+/* These all need to be refactored and more explicitly defined... */
+
+#profile-container {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  height: 75px;
+}
+
+#profile-container:hover {
+  cursor: pointer;
+}
+
+#profile-container #identity {
+  font-size: 40px;
+  margin-top: 25px;
+}
+
+#datecontainer {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+#datecontainer #to,
+#datecontainer #from {
+  width: 250px;
+}
+
+#profile-modal {
+  left: 0;
+  margin-left: 2.5%;
+  width: 95%;
+  height: 90%;
+  align-items: center;
+  display: none;
+}
+
+#profile-modal .modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#profile-modal .modal-wrapper {
+  width: 70%;
+  height: 100%;
+}
+
+#profile-modal #title {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  font-size: 60px;
+  border-bottom: 1px solid black;
+}
+
+#profile-modal #header {
+  padding-bottom: 5%;
+  font-size: 25px;
+  padding-top: 2%;
+  border-bottom: 1px solid black;
+}
+
+#profile-modal #history {
+  display: flex;
+  flex-direction: column;
+}
+
+#profile-modal #MAC-address {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
