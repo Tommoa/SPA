@@ -1,17 +1,16 @@
 define(function (require, exports, module) {
 
-  var SimpleSplunkView = require('splunkjs/mvc/simplesplunkview');
-  var _ = require("underscore");
+  const SimpleSplunkView = require('splunkjs/mvc/simplesplunkview');
+  const _ = require("underscore");
 
-  var DemoView = SimpleSplunkView.extend({
-
-    className: "demoview",
+  const ProfilesView = SimpleSplunkView.extend({
+    className: "profilesview",
     options: {
       data: "results"
     },
 
     formatData: function (data) {
-      var profilesHTML = "";
+      let profilesHTML = "";
 
       _.each(data, function (row, index) {
         const ID = row[0];
@@ -36,5 +35,5 @@ define(function (require, exports, module) {
       this.$el.html(data);
     }
   });
-  return DemoView;
+  return ProfilesView;
 });
