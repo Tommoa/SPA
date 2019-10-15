@@ -12,7 +12,7 @@
       </div>
 
       <h4> Results : </h4>
-      <div id="mycustomview" />
+      <div id="IDView" />
     
       <!-- Modal -->
       <div class="modal fade modal-lg" id="profile-modal" tabindex="-1" role="dialog">
