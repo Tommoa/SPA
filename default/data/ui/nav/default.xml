@@ -2,5 +2,6 @@
   <collection label="Search">
     <view name="SearchByID" />
   </collection> 
+  <view name="BlockList" />
 </nav>
 

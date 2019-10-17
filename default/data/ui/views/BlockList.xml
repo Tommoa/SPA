@@ -1,0 +1,27 @@
+<dashboard script="js/blocklistview.js">
+    <label>Block List</label>
+    <row>
+        <html>
+            <form id = "formBlockList">
+                <div class="fieldset">
+                    <div id="domainName">
+                        <h4>Domain Name</h4>
+                    </div>
+                    <div id="ipAddress">
+                        <h4>IP Address</h4>
+                    </div>
+                    <div id="severity">
+                        <h4>Severity</h4>
+                    </div>
+                    <div class="form-submit" id="submit_btn">
+                        <button class="btn btn-primary submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <panel>
+                <h4>Description</h4>
+                <div id="display"></div>
+            </panel>
+        </html>
+    </row>
+</dashboard>
