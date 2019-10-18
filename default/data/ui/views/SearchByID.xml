@@ -7,8 +7,8 @@
       
       <h4> Date Range : </h4>
       <div id='datecontainer'>
-        To: <div id='from'/>
-        From: <div id='to'/>
+        To: <div id='to'/>
+        From: <div id='from'/>
       </div>
 
       <h4> Results : </h4>
