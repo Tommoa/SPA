@@ -1,14 +1,16 @@
 require([
   "/static/app/SPA/js/retrieveProfiles.js",
   "/static/app/SPA/js/modal.js",
+  "/static/app/SPA/js/date.js",
   "splunkjs/mvc",
   "splunkjs/mvc/searchmanager",
   "splunkjs/mvc/textinputview",
   'splunkjs/mvc/tokenutils',
   "splunkjs/mvc/simplexml/ready!"
-], function (ProfilesView, Modal, mvc, SearchManager, TextInputView, TokenUtils) {
+], function (ProfilesView, Modal, Date, mvc, SearchManager, TextInputView, TokenUtils) {
 
   const tokens = mvc.Components.get('default');
+  const [todate, fromdate] = Date.getToFromDate();
 
   // Render text input for the student id input
   new TextInputView({
@@ -23,6 +25,7 @@ require([
     el: $('#from'),
     type: 'date',
     value: mvc.tokenSafe('$earliest$'),
+    default: fromdate,
   }).render();
 
   // Render date input for to date
@@ -31,6 +34,7 @@ require([
     el: $('#to'),
     type: 'date',
     value: mvc.tokenSafe('$latest$'),
+    default: todate,
   }).render();
 
   // Create view which contains IDs
