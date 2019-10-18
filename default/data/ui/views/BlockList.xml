@@ -4,13 +4,13 @@
         <html>
             <form id = "formBlockList">
                 <div class="fieldset">
-                    <div id="domainName">
+                    <div class="input input-text" id="domainName">
                         <h4>Domain Name</h4>
                     </div>
-                    <div id="ipAddress">
+                    <div class="input input-text" id="ipAddress">
                         <h4>IP Address</h4>
                     </div>
-                    <div id="severity">
+                    <div class="input input-text" id="severity">
                         <h4>Severity</h4>
                     </div>
                     <div class="form-submit" id="submit_btn">
