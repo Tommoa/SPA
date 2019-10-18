@@ -4,8 +4,11 @@ require([
   "splunkjs/mvc",
   "splunkjs/mvc/searchmanager",
   "splunkjs/mvc/textinputview",
+  'splunkjs/mvc/tokenutils',
   "splunkjs/mvc/simplexml/ready!"
-], function (ProfilesView, Modal, mvc, SearchManager, TextInputView) {
+], function (ProfilesView, Modal, mvc, SearchManager, TextInputView, TokenUtils) {
+
+  const tokens = mvc.Components.get('default');
 
   // Render text input for the student id input
   new TextInputView({
@@ -19,7 +22,7 @@ require([
     id: 'from',
     el: $('#from'),
     type: 'date',
-    value: mvc.tokenSafe('$fromdate$')
+    value: mvc.tokenSafe('$earliest$'),
   }).render();
 
   // Render date input for to date
@@ -27,7 +30,7 @@ require([
     id: 'to',
     el: $('#to'),
     type: 'date',
-    value: mvc.tokenSafe('$toDate$')
+    value: mvc.tokenSafe('$latest$'),
   }).render();
 
   // Create view which contains IDs
@@ -42,12 +45,15 @@ require([
     id: 'searchForProfile',
     preview: true,
     cache: true,
-    search: mvc.tokenSafe("* is-ise cise_passed_authentications \"User-Name\" | where like(UserName, \"$studentid$\") | eval MAC=mvindex(split(Acct_Session_Id, \"/\"), 1) | head 1 | table UserName MAC"),
+    search: mvc.tokenSafe("* is-ise cise_passed_authentications earliest=\"$earliest$\" latest=\"$latest$\" timeformat=\"%Y-%m-%d\"  \"User-Name\" | where like(UserName,\"$studentid$\")  | head 1 | table UserName" ),
   });
 
   // Show Modal
   $('#profilesView').on('click', function (event) {
-    Modal.renderModal($(this));
+    const identity = tokens.get('studentid');
+    const toDate = tokens.get('earliest');
+    const fromDate = tokens.get('latest');
+    Modal.renderModal(identity, toDate, fromDate);
   });
 
 });

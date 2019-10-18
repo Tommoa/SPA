@@ -3,17 +3,22 @@ define(function (require, exports, module) {
   const mvc = require('splunkjs/mvc');
   
   return {
-    renderModal: function (context) {
-      let identity = context.find('#identity').text();
-      identity = retrieveIdentityString(identity);
-
+    renderModal: function (identity, toDate, fromDate) {
       $('#profile-modal').modal('show');
       $('#ID').html('&nbsp' + identity);
+
+      const searchString = `
+        * is-ise cise_passed_authentications 
+        earliest="${toDate}" latest="${fromDate}" timeformat=\"%Y-%m-%d\" "User-Name" 
+        | where like(UserName, "${identity}") 
+        | eval MAC=mvindex(split(Acct_Session_Id, "/"), 1) 
+        | table UserName MAC
+      `;
 
       const historySearch = new SearchManager({
         preview: true,
         cache: true,
-        search: mvc.tokenSafe("* is-ise cise_passed_authentications \"User-Name\" | where like(UserName,\"$studentid$\") | eval MAC=mvindex(split(Acct_Session_Id, \"/\"), 1) | table UserName MAC")
+        search: mvc.tokenSafe(searchString)
       });
 
       const historyResults = historySearch.data('results');
@@ -23,11 +28,6 @@ define(function (require, exports, module) {
 });
 
 // HELPER FUNCTIONS
-
-function retrieveIdentityString(identityHTML) {
-  return identityHTML.split(':')[1].trim();
-}
-
 function processResults(historyResults) {
   historyResults.on('data', function () {
     const resultArray = historyResults.data().rows;
