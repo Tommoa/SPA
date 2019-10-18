@@ -1,28 +1,15 @@
 require([
   "/static/app/SPA/js/retrieveProfiles.js",
   "/static/app/SPA/js/modal.js",
+  "/static/app/SPA/js/date.js",
   "splunkjs/mvc",
   "splunkjs/mvc/searchmanager",
   "splunkjs/mvc/textinputview",
   "splunkjs/mvc/simplexml/ready!"
-], function (ProfilesView, Modal, mvc, SearchManager, TextInputView) {
+], function (ProfilesView, Modal, Date, mvc, SearchManager, TextInputView) {
 
-  function formatDateToString(date){
-   // 01, 02, 03, ... 29, 30, 31
-   var dd = (date.getDate() < 10 ? '0' : '') + date.getDate();
-   // 01, 02, 03, ... 10, 11, 12
-   var MM = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
-   // 1970, 1971, ... 2015, 2016, ...
-   var yyyy = date.getFullYear();
+  const [todate, fromdate] = Date.getToFromDate();
 
-   // create the format you want
-   return (yyyy + "-" + MM + "-" + dd);
-  }
-
-  var today = new Date();
-  var todate = formatDateToString(today);
-  today.setMonth(today.getMonth() - 3);
-  var fromdate = formatDateToString(today);
   // Render text input for the student id input
   new TextInputView({
     id: 'txtNum',
