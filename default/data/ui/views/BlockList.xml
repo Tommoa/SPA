@@ -4,11 +4,11 @@
         <html>
             <form id = "formBlockList">
                 <div class="fieldset">
-                    <div class="input input-text" id="domainName">
-                        <h4>Domain Name</h4>
-                    </div>
                     <div class="input input-text" id="ipAddress">
                         <h4>IP Address</h4>
+                    </div>
+                    <div class="input input-text" id="host">
+                        <h4>Host</h4>
                     </div>
                     <div class="input input-dropdown" id="severity">
                         <h4>Severity</h4>

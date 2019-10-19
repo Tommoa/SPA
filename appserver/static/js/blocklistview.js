@@ -21,17 +21,16 @@ require([
         //
         // VIEWS: FORM INPUTS
         //
-
-        var domainName = new TextInput({
-            "id": "domainName",
-            "value": mvc.tokenSafe("$domainName$"),
-            "el": $('#domainName')
-        }, {tokens: true}).render();
-
         var ipAddress = new TextInput({
             "id": "ipAddress",
             "value": mvc.tokenSafe("$ipAddress$"),
             "el": $('#ipAddress')
+        }, {tokens: true}).render();
+
+        var host = new TextInput({
+            "id": "host",
+            "value": mvc.tokenSafe("$host$"),
+            "el": $('#host')
         }, {tokens: true}).render();
 
         var severity = new DropdownInput({
@@ -56,7 +55,7 @@ require([
             "id": "searchBlockList",
             "earliest_time": "-24h@h",
             "latest_time": "now",
-            "search": " | inputlookup myblocklist_lookup | eval  KeyID = _key | table KeyID, DomainName, IpAddress, Severity",
+            "search": " | inputlookup myblocklist_lookup | eval  IpAddress = _key | table IpAddress, Host, Severity",
             "preview": true
         }, {tokens: true});
 
@@ -91,14 +90,14 @@ require([
         submit.on("submit", function() {
             // When the Submit button is clicked, get all the form fields by accessing token values
             var tokens = mvc.Components.get("default");
-            var form_dom = tokens.get("domainName");
             var form_ip = tokens.get("ipAddress");
+            var form_host = tokens.get("host");
             var form_sev = tokens.get("severity");
 
             // Create a dictionary to store the field names and values
             var record = {
-                "DomainName": form_dom,
-                "IpAddress": form_ip,
+                "_key": form_ip,
+                "Host": form_host,
                 "Severity": form_sev
             };
 
@@ -119,8 +118,8 @@ require([
 
                     // Clear the form fields
                     $("#formBlockList input[type=text]").val("");
-                    tokens.set("domainName", "");
                     tokens.set("ipAddress", "");
+                    tokens.set("host", "");
                 });
         });
 
