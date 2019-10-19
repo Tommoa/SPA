@@ -25,27 +25,27 @@ require([
             "id": "ipAddress",
             "value": mvc.tokenSafe("$ipAddress$"),
             "el": $('#ipAddress')
-        }, {tokens: true}).render();
+        }, { tokens: true }).render();
 
         var host = new TextInput({
             "id": "host",
             "value": mvc.tokenSafe("$host$"),
             "el": $('#host')
-        }, {tokens: true}).render();
+        }, { tokens: true }).render();
 
         var severity = new DropdownInput({
             "id": "severity",
             "choices": [
-                {"value": "1", "label": "1"},
-                {"value": "2", "label": "2"},
-                {"value": "3", "label": "3"},
-                {"value": "4", "label": "4"},
-                {"value": "5", "label": "5"}
+                { "value": "1", "label": "1" },
+                { "value": "2", "label": "2" },
+                { "value": "3", "label": "3" },
+                { "value": "4", "label": "4" },
+                { "value": "5", "label": "5" }
             ],
             "default": "1",
             "value": mvc.tokenSafe("$severity$"),
             "el": $('#severity')
-        }, {tokens: true}).render();
+        }, { tokens: true }).render();
 
         //
         // SEARCH MANAGERS
@@ -57,7 +57,7 @@ require([
             "latest_time": "now",
             "search": " | inputlookup myblocklist_lookup | eval  IpAddress = _key | table IpAddress, Host, Severity",
             "preview": true
-        }, {tokens: true});
+        }, { tokens: true });
 
         //
         // DISPLAY TABLE
@@ -68,7 +68,7 @@ require([
             "drilldown": "none",
             "managerid": "searchBlockList",
             "el": $('#display')
-        }, {tokens: true}).render();
+        }, { tokens: true }).render();
 
         //
         // SERVICE OBJECT
@@ -85,7 +85,7 @@ require([
         var submit = new SubmitButton({
             id: 'submit',
             el: $('#submit_btn')
-        }, {tokens: true}).render();
+        }, { tokens: true }).render();
 
         submit.on("submit", function() {
             // When the Submit button is clicked, get all the form fields by accessing token values

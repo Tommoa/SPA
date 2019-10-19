@@ -2,26 +2,27 @@
     <label>Block List</label>
     <row>
         <html>
-            <form id = "formBlockList">
-                <div class="fieldset">
-                    <div class="input input-text" id="ipAddress">
-                        <h4>IP Address</h4>
-                    </div>
-                    <div class="input input-text" id="host">
-                        <h4>Host</h4>
-                    </div>
-                    <div class="input input-dropdown" id="severity">
-                        <h4>Severity</h4>
-                    </div>
-                    <div class="form-submit" id="submit_btn">
-                        <button class="btn btn-primary submit">Submit</button>
-                    </div>
+        <form id="formBlockList">
+            <div class="fieldset">
+                <div class="input input-text" id="ipAddress">
+                    <h4>IP Address</h4>
                 </div>
-            </form>
-            <panel>
-                <h4>Description</h4>
-                <div id="display"></div>
-            </panel>
+                <div class="input input-text" id="host">
+                    <h4>Host</h4>
+                </div>
+                <div class="input input-dropdown" id="severity">
+                    <h4>Severity</h4>
+                </div>
+                <div class="form-submit" id="submit_btn">
+                    <button class="btn btn-primary submit">Submit</button>
+                </div>
+            </div>
+        </form>
+        <panel>
+            <h4>Description</h4>
+            <div id="display"></div>
+        </panel>
+
         </html>
     </row>
 </dashboard>
