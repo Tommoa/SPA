@@ -12,6 +12,9 @@ require([
   const tokens = mvc.Components.get('default');
   const [todate, fromdate] = Date.getToFromDate();
 
+  tokens.set("earliest", fromdate);
+  tokens.set("latest", todate);
+
   // Render text input for the student id input
   new TextInputView({
     id: 'txtNum',
@@ -24,8 +27,7 @@ require([
     id: 'from',
     el: $('#from'),
     type: 'date',
-    value: mvc.tokenSafe('$earliest$'),
-    default: fromdate,
+    value: mvc.tokenSafe('$earliest$')
   }).render();
 
   // Render date input for to date
@@ -33,8 +35,7 @@ require([
     id: 'to',
     el: $('#to'),
     type: 'date',
-    value: mvc.tokenSafe('$latest$'),
-    default: todate,
+    value: mvc.tokenSafe('$latest$')
   }).render();
 
   // Create view which contains IDs

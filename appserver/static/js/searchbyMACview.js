@@ -1,14 +1,19 @@
 require([
   "/static/app/SPA/js/retrieveProfiles.js",
   "/static/app/SPA/js/modal.js",
+  "/static/app/SPA/js/date.js",
   "splunkjs/mvc",
   "splunkjs/mvc/searchmanager",
   "splunkjs/mvc/textinputview",
   'splunkjs/mvc/tokenutils',
   "splunkjs/mvc/simplexml/ready!"
-], function (ProfilesView, Modal, mvc, SearchManager, TextInputView, TokenUtils) {
+], function (ProfilesView, Modal, Date, mvc, SearchManager, TextInputView, TokenUtils) {
 
   const tokens = mvc.Components.get('default');
+  const [todate, fromdate] = Date.getToFromDate();
+
+  tokens.set("earliest", fromdate);
+  tokens.set("latest", todate);
 
   // Render text input for the mac address input
   new TextInputView({
