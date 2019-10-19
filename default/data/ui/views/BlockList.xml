@@ -10,7 +10,7 @@
                     <div class="input input-text" id="ipAddress">
                         <h4>IP Address</h4>
                     </div>
-                    <div class="input input-text" id="severity">
+                    <div class="input input-dropdown" id="severity">
                         <h4>Severity</h4>
                     </div>
                     <div class="form-submit" id="submit_btn">

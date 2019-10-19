@@ -3,6 +3,7 @@ require([
         "jquery",
         "splunkjs/mvc/tableview",
         "splunkjs/mvc/simpleform/input/text",
+        "splunkjs/mvc/simpleform/input/dropdown",
         "splunkjs/mvc/simpleform/input/submit",
         "splunkjs/mvc/searchmanager",
         "splunkjs/mvc/simplexml/ready!"
@@ -12,6 +13,7 @@ require([
         $,
         TableView,
         TextInput,
+        DropdownInput,
         SubmitButton,
         SearchManager
     ) {
@@ -24,25 +26,27 @@ require([
             "id": "domainName",
             "value": mvc.tokenSafe("$domainName$"),
             "el": $('#domainName')
-        }, {
-            tokens: true
-        }).render();
+        }, {tokens: true}).render();
 
         var ipAddress = new TextInput({
             "id": "ipAddress",
             "value": mvc.tokenSafe("$ipAddress$"),
             "el": $('#ipAddress')
-        }, {
-            tokens: true
-        }).render();
+        }, {tokens: true}).render();
 
-        var severity = new TextInput({
+        var severity = new DropdownInput({
             "id": "severity",
+            "choices": [
+                {"value": "1", "label": "1"},
+                {"value": "2", "label": "2"},
+                {"value": "3", "label": "3"},
+                {"value": "4", "label": "4"},
+                {"value": "5", "label": "5"}
+            ],
+            "default": "1",
             "value": mvc.tokenSafe("$severity$"),
             "el": $('#severity')
-        }, {
-            tokens: true
-        }).render();
+        }, {tokens: true}).render();
 
         //
         // SEARCH MANAGERS
@@ -54,9 +58,7 @@ require([
             "latest_time": "now",
             "search": " | inputlookup myblocklist_lookup | eval  KeyID = _key | table KeyID, DomainName, IpAddress, Severity",
             "preview": true
-        }, {
-            tokens: true
-        });
+        }, {tokens: true});
 
         //
         // DISPLAY TABLE
@@ -67,9 +69,7 @@ require([
             "drilldown": "none",
             "managerid": "searchBlockList",
             "el": $('#display')
-        }, {
-            tokens: true
-        }).render();
+        }, {tokens: true}).render();
 
         //
         // SERVICE OBJECT
@@ -86,9 +86,7 @@ require([
         var submit = new SubmitButton({
             id: 'submit',
             el: $('#submit_btn')
-        }, {
-            tokens: true
-        }).render();
+        }, {tokens: true}).render();
 
         submit.on("submit", function() {
             // When the Submit button is clicked, get all the form fields by accessing token values
@@ -121,6 +119,8 @@ require([
 
                     // Clear the form fields
                     $("#formBlockList input[type=text]").val("");
+                    tokens.set("domainName", "");
+                    tokens.set("ipAddress", "");
                 });
         });
 
