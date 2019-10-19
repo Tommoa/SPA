@@ -57,8 +57,8 @@ require([
   $('#profilesView').on('click', function (event) {
     let identity = $(this).find('#identity').text();
     identity = identity.split(":")[1].trim();
-    const toDate = tokens.get('earliest');
-    const fromDate = tokens.get('latest');
+    const toDate = tokens.get('latest');
+    const fromDate = tokens.get('earliest');
     Modal.renderModal(identity, toDate, fromDate);
   });
 

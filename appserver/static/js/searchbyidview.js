@@ -56,8 +56,8 @@ require([
   // Show Modal
   $('#profilesView').on('click', function (event) {
     const identity = tokens.get('studentid');
-    const toDate = tokens.get('earliest');
-    const fromDate = tokens.get('latest');
+    const toDate = tokens.get('latest');
+    const fromDate = tokens.get('earliest');
     Modal.renderModal(identity, toDate, fromDate);
   });
 

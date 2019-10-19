@@ -1,7 +1,7 @@
 define(function (require, exports, module) {
   const SearchManager = require('splunkjs/mvc/searchmanager');
   const mvc = require('splunkjs/mvc');
-  
+
   return {
     renderModal: function (identity, toDate, fromDate) {
       $('#profile-modal').modal('show');
@@ -9,7 +9,7 @@ define(function (require, exports, module) {
 
       const searchString = `
         * is-ise cise_passed_authentications 
-        earliest="${toDate}" latest="${fromDate}" timeformat=\"%Y-%m-%d\" "User-Name" 
+        earliest="${fromDate}" latest="${toDate}" timeformat=\"%Y-%m-%d\" "User-Name" 
         | where like(UserName, "${identity}") 
         | eval MAC=mvindex(split(Acct_Session_Id, "/"), 1) 
         | table UserName MAC
@@ -37,7 +37,7 @@ function processResults(historyResults) {
       const div = "<div id = \"MAC-address\">" + x + "</div>";
       return acc + div;
     }, ' ');
-    
+
     $('#history').html(html);
   });
 }

@@ -6,7 +6,7 @@ define(function (require, exports, module) {
       today.setMonth(today.getMonth() - 3);
       let fromdate = formatDateToString(today);
       return [todate, fromdate];
-    }    
+    }
   }
 });
 
