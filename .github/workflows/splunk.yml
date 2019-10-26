@@ -26,5 +26,6 @@ jobs:
         pip install splunk-appinspect.tar.gz
     - name: Run AppInspect
       run: |
-        tar -zcvf SPA.tar.gz ${GITHUB_WORKSPACE}
+        cd ${GITHUB_WORKSPACE}
+        git archive HEAD --worktree-attributes --format=tar | gzip > SPA.tar.gz
         splunk-appinspect inspect SPA.tar.gz --mode precert
