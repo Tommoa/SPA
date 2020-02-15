@@ -19,7 +19,7 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Download AppInspect
       run: |
-        curl -Ls http://dev.splunk.com/goto/appinspectdownload -o  splunk-appinspect.tar.gz
+        curl -Ls https://download.splunk.com/misc/appinspect/splunk-appinspect-latest.tar.gz -o  splunk-appinspect.tar.gz
     - name: Install AppInspect
       run: |
         python -m pip install --upgrade pip
