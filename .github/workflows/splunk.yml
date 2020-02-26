@@ -27,3 +27,4 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         tar -zcvf SPA.tar.gz appserver bin default local lookups metadata README.md
         splunk-appinspect inspect SPA.tar.gz --mode test
+        echo $?
