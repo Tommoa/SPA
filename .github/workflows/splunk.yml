@@ -26,5 +26,5 @@ jobs:
       run: |
         cd ${GITHUB_WORKSPACE}
         tar -zcvf SPA.tar.gz appserver bin default local lookups metadata README.md
-        splunk-appinspect inspect SPA.tar.gz --mode test
-        echo $?
+        splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all
+        splunk-appinspect inspect SPA.tar.gz --mode precert | grep FAILURE > /dev/null && exit 1
