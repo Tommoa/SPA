@@ -25,5 +25,6 @@ jobs:
     - name: Run AppInspect
       run: |
         cd ${GITHUB_WORKSPACE}
-        git archive HEAD --worktree-attributes --format=tar | gzip > SPA.tar.gz
-        splunk-appinspect inspect SPA.tar.gz --mode precert
+        tar -zcvf SPA.tar.gz appserver bin default local lookups metadata README.md
+        splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all
+        splunk-appinspect inspect SPA.tar.gz --mode precert | grep FAILURE > /dev/null && exit 1
