@@ -1,8 +1,8 @@
-<dashboard script="js/blocklistview.js">
-    <label>Block List</label>
+<dashboard script="js/blacklistview.js">
+    <label>Black List</label>
     <row>
         <html>
-        <form id="formBlockList">
+        <form id="formBlackList">
             <div class="fieldset">
                 <div class="input input-text" id="ipAddress">
                     <h4>IP Address</h4>

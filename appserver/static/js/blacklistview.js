@@ -51,11 +51,11 @@ require([
         // SEARCH MANAGERS
         //
 
-        var searchBlockList = new SearchManager({
-            "id": "searchBlockList",
+        var searchBlackList = new SearchManager({
+            "id": "searchBlackList",
             "earliest_time": "-24h@h",
             "latest_time": "now",
-            "search": " | inputlookup myblocklist_lookup | eval  IpAddress = _key | table IpAddress, Host, Severity",
+            "search": " | inputlookup myblacklist_lookup | eval  IpAddress = _key | table IpAddress, Host, Severity",
             "preview": true
         }, { tokens: true });
 
@@ -66,7 +66,7 @@ require([
         var element1 = new TableView({
             "id": "element1",
             "drilldown": "none",
-            "managerid": "searchBlockList",
+            "managerid": "searchBlackList",
             "el": $('#display')
         }, { tokens: true }).render();
 
@@ -104,7 +104,7 @@ require([
             // Use the request method to send a REST POST request
             // to the storage/collections/data/{collection}/ endpoint
             service.request(
-                    "storage/collections/data/myblocklist/",
+                    "storage/collections/data/myblacklist/",
                     "POST",
                     null,
                     null,
@@ -114,10 +114,10 @@ require([
                     null)
                 .done(function() {
                     // Run the search again to update the table
-                    searchBlockList.startSearch();
+                    searchBlackList.startSearch();
 
                     // Clear the form fields
-                    $("#formBlockList input[type=text]").val("");
+                    $("#formBlackList input[type=text]").val("");
                     tokens.set("ipAddress", "");
                     tokens.set("host", "");
                 });
