@@ -1,18 +1,15 @@
-<dashboard script='js/searchbyidview.js' stylesheet='css/searchbyidstyling.css'>
-  <label>Search By ID</label>
+<dashboard script='js/searchbyidview.js' stylesheet='css/quicksand.css, css/alerts.css, css/searchbyidstyling.css'>
   <row>
     <panel>
       <html>
-      <h4> Input A Student ID : </h4> <div id='studentid'/>
+      <div id='studentid'/>
       
-      <h4> Date Range : </h4>
       <div id='datecontainer'>
-        From: <div id='from'/>
-        To: <div id='to'/>
+          From: <div id='from'/>
+          To: <div id='to'/>
       </div>
 
-      <h4> Results : </h4>
-      <div id='profilesView' />
+      <div class="center-contents" id='profilesView' />
     
       <!-- Modal -->
       <div class='modal fade modal-lg' id='profile-modal' tabindex='-1' role='dialog'>
@@ -28,4 +25,16 @@
     </html>
     </panel>
   </row>
+
+  <!-- TODO - this will need to be refactored -->
+  <row>
+    <panel>
+      <html>
+          <h1> Latest Alert </h1>
+          <div class="center-contents latest-alert-container">
+          </div>
+      </html>
+    </panel>
+  </row>
+  
 </dashboard>
