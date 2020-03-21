@@ -2,19 +2,57 @@ define(function(require, exports, module) {
   return {
     getLatestAlert: function() {
       startPolling();
+    },
+    getCookie: function(name, cookiesString) {
+      return getCookie(name, cookiesString);
     }
   };
 });
 
 function startPolling() {
+  retrieveLatestAlert(); // on initial load call
+
   setInterval(function() {
     retrieveLatestAlert();
-  }, 5000);
+  }, 10000);
+}
+
+function getCookie(name, cookiesString) {
+  const cookiesList = cookiesString.split("; ");
+
+  const cookieValue = cookiesList.reduce((acc, cookie) => {
+    [key, value] = cookie.split('=')
+
+    if(key === name) {
+      acc = value;
+      return acc;
+    }
+    return acc;
+  }, "");
+
+  if(cookieValue.length === 0) {
+    return undefined;
+  }
+
+  return cookieValue;
+}
+
+function retrieveBaseURL() {
+  const cookies = document.cookie;
+  const baseURL = getCookie("baseURL", cookies);
+
+  if(baseURL === undefined) {
+    console.dir("BASE_URL has not been set, using default URL");
+    return 'http://localhost:5000/';
+  }
+
+  return baseURL
 }
 
 async function retrieveLatestAlert() {
-  const BASE_URL = "http://localhost:5000";
-  const route = "/get_alert";
+  const BASE_URL = retrieveBaseURL();
+  
+  const route = "get_alert";
   const endpoint = BASE_URL + route;
 
   let alert = await fetch(endpoint).then(function(response) {
