@@ -17,6 +17,10 @@
   background-color: rgb(237, 237, 237)
 }
 
+.modal {
+  margin-left: -30%;
+}
+
 #profile-container {
   font-family: "Quicksand", sans-serif;
   font-weight: 300;
