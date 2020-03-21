@@ -1,14 +1,33 @@
 /* These all need to be refactored and more explicitly defined... */
 
-#profile-container {
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+#studentid div{
   display: flex;
-  flex-direction: column;
-  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+#studentid input{
+  border: none;
+  height: 100px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  width: 80%;
+  align-self: center;
+  background-color: rgb(237, 237, 237)
+}
+
+#profile-container {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  width: 60%;
+  -webkit-box-shadow: 0px -6px 87px -2px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 0px -6px 87px -2px rgba(194, 194, 194, 1);
+  box-shadow: 0px -6px 87px -2px rgba(194, 194, 194, 1);
   margin-top: 20px;
   margin-bottom: 10px;
-  height: 75px;
+  border-radius: 10px;
+  padding: 40px;
 }
 
 #profile-container:hover {
@@ -17,17 +36,23 @@
 
 #profile-container #identity {
   font-size: 40px;
-  margin-top: 25px;
 }
 
 #datecontainer {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  margin-left: 10%;
+  text-transform: uppercase;
+  border: none;
 }
 
 #datecontainer #to,
 #datecontainer #from {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 250px;
 }
 
@@ -76,3 +101,16 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.dashboard-row {
+  margin-top: 20px;
+}
+
+.center-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+

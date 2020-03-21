@@ -18,7 +18,7 @@ define(function (require, exports, module) {
         const profileCard = 
         ` <div id=profile-container>
             <div id='identity'>
-              <b> Identity : </b> ${ID}
+              ${ID}
             </div>
           </div> `
         profilesHTML += profileCard;
