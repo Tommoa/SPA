@@ -15,10 +15,22 @@
       <!-- Modal -->
       <div class='modal fade modal-lg' id='profile-modal' tabindex='-1' role='dialog'>
         <div class='modal-content'>
-          <div class='modal-wrapper'>
-            <div id='title'> <b> ID : </b> <div id='ID'></div> </div>
-            <div id='header'> <b> Contact Details </b> <div id='contactDetails'></div></div>
-            <div id='header'> <b> History </b> <div id='history'></div> </div>
+          <div id="modal-wrapper">
+            <div id='title'>
+              <div id='ID'> 21969062 </div>
+            </div>
+            <div id='header'>
+              User Details
+              <div id='contact-details'>
+                <div>21969062@student.uwa.edu.au</div>
+                <div>042928403</div>
+              </div>
+            </div>
+            <div id='header'>
+              MAC Address
+              <div id='history'>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -31,7 +43,6 @@
   <row>
     <panel>
       <html>
-          <h1> Latest Alert </h1>
           <div class="center-contents latest-alert-container">
           </div>
       </html>

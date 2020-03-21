@@ -62,7 +62,10 @@ require([
     const identity = tokens.get('studentid');
     const toDate = tokens.get('latest');
     const fromDate = tokens.get('earliest');
-    Modal.renderModal(identity, toDate, fromDate);
+
+    if(identity !== undefined) {
+      Modal.renderModal(identity, toDate, fromDate);
+    }
   });
 
 });
