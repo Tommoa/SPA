@@ -59,6 +59,17 @@ require([
             "preview": true
         }, { tokens: true });
 
+        var addCsvBlackList = new SearchManager({
+            "id": "addCsvBlackList",
+            "autostart": "false",
+            "search": `index="blacklist_csv"
+                        | dedup ip_address
+                        | rename extracted_host as Host, severity as Severity
+                        | table ip_address, Host, Severity
+                        | outputlookup myblacklist_lookup append=T key_field=ip_address`
+        });
+
+
         //
         // DISPLAY TABLE
         //
@@ -121,6 +132,20 @@ require([
                     tokens.set("ipAddress", "");
                     tokens.set("host", "");
                 });
+        });
+
+        // var addCsvButton = new Button({
+        //     "id": "addCsvButton",
+        //     "el": $('#addcsv_btn')
+        // }).render();
+
+        $(".addCsvButton").on("click", function() {
+            var ok = confirm("Add data from CSV folder?");
+            if (ok) {
+                addCsvBlackList.startSearch();
+                alert('Data added!');
+                searchBlackList.startSearch();
+            }
         });
 
     });
