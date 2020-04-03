@@ -1,0 +1,30 @@
+name: Splunk app
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Download AppInspect
+      run: |
+        curl -Ls https://download.splunk.com/misc/appinspect/splunk-appinspect-latest.tar.gz -o  splunk-appinspect.tar.gz
+    - name: Install AppInspect
+      run: |
+        python -m pip install --upgrade pip
+        pip install splunk-appinspect.tar.gz
+    - name: Run AppInspect
+      run: |
+        cd ${GITHUB_WORKSPACE}
+        tar -zcvf SPA.tar.gz appserver bin default lookups static metadata/default.meta README.md
+        splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all
+        splunk-appinspect inspect SPA.tar.gz --mode precert | grep FAILURE > /dev/null && exit 1

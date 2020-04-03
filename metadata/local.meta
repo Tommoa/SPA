@@ -1,17 +1,26 @@
 [app/ui]
-version = 7.3.1
-modtime = 1567942942.648753200
+owner = admin
+version = 8.0.2
+modtime = 1583203568.582724000
 
 [app/launcher]
-version = 7.3.1
-modtime = 1567942942.651753500
+version = 8.0.2
+modtime = 1583203568.592722600
+
+[app/package/check_for_updates]
+version = 8.0.2
+modtime = 1583203568.597722700
+
+[app/install/state]
+version = 8.0.2
+modtime = 1583203838.001318400
 
 [indexes/blacklist_csv]
 owner = admin
-version = 7.3.2
+version = 8.0.2
 modtime = 1585122959.013313600
 
 [inputs/monitor%3A%2F%2FC%3A%5CProgram%20Files%5CSplunk%5Cetc%5Capps%5CSPA%5Cblacklists]
 owner = admin
-version = 7.3.2
+version = 8.0.2
 modtime = 1585122976.200966900

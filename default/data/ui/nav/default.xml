@@ -1,6 +1,7 @@
 <nav>
   <collection label="Search">
     <view name="SearchByID" />
+    <view name="SearchByMAC" />
   </collection> 
   <view name="BlackList" />
 </nav>

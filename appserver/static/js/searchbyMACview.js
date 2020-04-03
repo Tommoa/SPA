@@ -15,11 +15,11 @@ require([
   tokens.set("earliest", fromdate);
   tokens.set("latest", todate);
 
-  // Render text input for the student id input
+  // Render text input for the mac address input
   new TextInputView({
     id: 'txtNum',
-    value: mvc.tokenSafe('$studentid$'),
-    el: $('#studentid')
+    value: mvc.tokenSafe('$MACaddress$'),
+    el: $('#MACaddress')
   }).render()
 
   // Render date input for from date
@@ -27,7 +27,7 @@ require([
     id: 'from',
     el: $('#from'),
     type: 'date',
-    value: mvc.tokenSafe('$earliest$')
+    value: mvc.tokenSafe('$earliest$'),
   }).render();
 
   // Render date input for to date
@@ -35,7 +35,7 @@ require([
     id: 'to',
     el: $('#to'),
     type: 'date',
-    value: mvc.tokenSafe('$latest$')
+    value: mvc.tokenSafe('$latest$'),
   }).render();
 
   // Create view which contains IDs
@@ -50,12 +50,13 @@ require([
     id: 'searchForProfile',
     preview: true,
     cache: true,
-    search: mvc.tokenSafe("* is-ise cise_passed_authentications earliest=\"$earliest$\" latest=\"$latest$\" timeformat=\"%Y-%m-%d\"  \"User-Name\" | where like(UserName,\"$studentid$\")  | head 1 | table UserName" ),
+    search: mvc.tokenSafe("* is-ise cise_passed_authentications earliest=\"$earliest$\" latest=\"$latest$\" timeformat=\"%Y-%m-%d\" \"User-Name\" | eval MAC=mvindex(split(Acct_Session_Id, \"/\"), 1)| where like(MAC,\"$MACaddress$\") | head 1 | table UserName MAC"),
   });
 
   // Show Modal
   $('#profilesView').on('click', function (event) {
-    const identity = tokens.get('studentid');
+    let identity = $(this).find('#identity').text();
+    identity = identity.split(":")[1].trim();
     const toDate = tokens.get('latest');
     const fromDate = tokens.get('earliest');
     Modal.renderModal(identity, toDate, fromDate);
