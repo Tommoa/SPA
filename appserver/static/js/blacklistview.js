@@ -51,16 +51,16 @@ require([
         // SEARCH MANAGERS
         //
 
-        var searchBlackList = new SearchManager({
-            "id": "searchBlackList",
+        var searchBlacklist = new SearchManager({
+            "id": "searchBlacklist",
             "earliest_time": "-24h@h",
             "latest_time": "now",
             "search": " | inputlookup myblacklist_lookup | eval  IpAddress = _key | table IpAddress, Host, Severity",
             "preview": true
         }, { tokens: true });
 
-        var addCsvBlackList = new SearchManager({
-            "id": "addCsvBlackList",
+        var addCsvBlacklist = new SearchManager({
+            "id": "addCsvBlacklist",
             "autostart": "false",
             "search": `index="blacklist_csv"
                         | dedup ip_address
@@ -77,7 +77,7 @@ require([
         var element1 = new TableView({
             "id": "element1",
             "drilldown": "none",
-            "managerid": "searchBlackList",
+            "managerid": "searchBlacklist",
             "el": $('#display')
         }, { tokens: true }).render();
 
@@ -125,10 +125,10 @@ require([
                     null)
                 .done(function() {
                     // Run the search again to update the table
-                    searchBlackList.startSearch();
+                    searchBlacklist.startSearch();
 
                     // Clear the form fields
-                    $("#formBlackList input[type=text]").val("");
+                    $("#formBlacklist input[type=text]").val("");
                     tokens.set("ipAddress", "");
                     tokens.set("host", "");
                 });
@@ -137,9 +137,9 @@ require([
         $(".addCsvButton").on("click", function() {
             var ok = confirm("Add data from CSV folder?");
             if (ok) {
-                addCsvBlackList.startSearch();
+                addCsvBlacklist.startSearch();
                 alert('Data added!');
-                searchBlackList.startSearch();
+                searchBlacklist.startSearch();
             }
         });
 

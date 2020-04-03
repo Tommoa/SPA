@@ -1,8 +1,8 @@
 <dashboard script="js/blacklistview.js">
-    <label>Black List</label>
+    <label>Website Blacklist</label>
     <row>
         <html>
-        <form id="formBlackList">
+        <form id="formBlacklist">
             <div class="fieldset">
                 <div class="input input-text" id="ipAddress">
                     <h4>IP Address</h4>

@@ -2,7 +2,6 @@
   <collection label="Search">
     <view name="SearchByID" />
     <view name="SearchByMAC" />
-  </collection> 
-  <view name="BlackList" />
+  </collection>
+  <view name="Blacklist" />
 </nav>
-
