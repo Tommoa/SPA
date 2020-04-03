@@ -14,7 +14,7 @@ define(function (require, exports, module) {
 
       _.each(data, function (row, index) {
         const ID = row[0];
-        
+
         const profileCard = 
         ` <div id=profile-container>
             <div id='identity'>

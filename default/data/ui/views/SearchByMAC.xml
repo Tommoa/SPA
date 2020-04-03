@@ -1,31 +1,51 @@
-<dashboard script='js/searchbyMACview.js' stylesheet='css/searchbyidstyling.css'>
+<dashboard script='js/searchbyMACview.js' stylesheet='css/quicksand.css, css/alerts.css, css/modal.css, css/common.css'>
   <label>Search By MAC</label>
   <row>
     <panel>
       <html>
-      <h4> Input A MAC Address : </h4> <div id='MACaddress'/>
-      
-      <h4> Date Range : </h4>
+      <div id='MACaddress'/>
+            
       <div id='datecontainer'>
-        From: <div id='from'/>
-        To: <div id='to'/>
+          From: <div id='from'/>
+          To: <div id='to'/>
       </div>
 
-      <h4> Results : </h4>
-      <div id='profilesView' />
+      <div class="center-contents" id='profilesView' />
     
       <!-- Modal -->
       <div class='modal fade modal-lg' id='profile-modal' tabindex='-1' role='dialog'>
         <div class='modal-content'>
-          <div class='modal-wrapper'>
-            <div id='title'> <b> ID : </b> <div id='ID'></div> </div>
-            <div id='header'> <b> Contact Details </b> <div id='contactDetails'></div></div>
-            <div id='header'> <b> History </b> <div id='history'></div> </div>
+          <div id="modal-wrapper">
+            <div id='title'>
+              <div id='ID'> 21969062 </div>
+            </div>
+            <div id='header'>
+              User Details
+              <div id='contact-details'>
+                <div>21969062@student.uwa.edu.au</div>
+                <div>042928403</div>
+              </div>
+            </div>
+            <div id='header'>
+              MAC Address
+              <div id='history'>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
     </html>
+    </panel>
+  </row>
+
+    <!-- TODO - this will need to be refactored -->
+  <row>
+    <panel>
+      <html>
+          <div class="center-contents latest-alert-container">
+          </div>
+      </html>
     </panel>
   </row>
 </dashboard>
