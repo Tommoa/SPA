@@ -134,11 +134,6 @@ require([
                 });
         });
 
-        // var addCsvButton = new Button({
-        //     "id": "addCsvButton",
-        //     "el": $('#addcsv_btn')
-        // }).render();
-
         $(".addCsvButton").on("click", function() {
             var ok = confirm("Add data from CSV folder?");
             if (ok) {
