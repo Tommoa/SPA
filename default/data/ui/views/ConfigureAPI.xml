@@ -1,0 +1,17 @@
+<dashboard script='js/configure.js' stylesheet='css/quicksand.css, css/configure.css'>
+  <label>Configure API</label>
+  <row>
+    <panel>
+      <html>
+        <div class="configure-container">
+          <div class="center-contents"> 
+            Base URL : <div id="base-url" /> 
+          </div>
+          <div class="configure-msg">
+          </div>
+        </div>
+      </html>
+    </panel>
+  </row>
+
+</dashboard>

@@ -1,0 +1,86 @@
+/* These all need to be refactored and more explicitly defined... */
+
+.dashboard-row .dashboard-panel {
+  background-color: #f2f4f5;
+}
+
+#studentid div,
+#MACaddress div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+#studentid input,
+#MACaddress input {
+  border: none;
+  height: 100px;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 50px;
+  width: 80%;
+  align-self: center;
+  background-color: white;
+  box-shadow: none;
+}
+
+#profile-container {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  width: 58%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 40px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+  box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+}
+
+#profile-container:hover {
+  cursor: pointer;
+}
+
+#profile-container #identity {
+  font-size: 28px;
+}
+
+#datecontainer {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  margin-left: 10.5%;
+  text-transform: uppercase;
+  border: none;
+  margin-bottom: 40px;
+}
+
+#datecontainer input {
+  box-shadow: none;
+  border: none;
+}
+
+#datecontainer #to,
+#datecontainer #from {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+
+/* adds a top margin to the "alerts" row */
+#row2 {
+  margin-top: 40px;
+}
+
+.center-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

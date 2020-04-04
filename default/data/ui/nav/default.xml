@@ -2,6 +2,7 @@
   <collection label="Search">
     <view name="SearchByID" />
     <view name="SearchByMAC" />
+    <view name="ConfigureAPI" />
   </collection>
   <view name="Blacklist" />
 </nav>
