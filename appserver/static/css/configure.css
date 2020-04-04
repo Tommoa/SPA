@@ -6,8 +6,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-family: 'Quicksand', sans-serif;
-	font-weight: 300;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
 }
 
 .center-contents {
@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 #base-url {
   width: 300px;

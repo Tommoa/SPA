@@ -37,9 +37,9 @@
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 40px;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(194,194,194,1);
-	-moz-box-shadow: 10px 10px 5px 0px rgba(194,194,194,1);
-	box-shadow: 10px 10px 5px 0px rgba(194,194,194,1);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+  box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
 }
 
 #profile-container:hover {
@@ -62,7 +62,7 @@
 }
 
 #datecontainer input {
-  box-shadow: none; 
+  box-shadow: none;
   border: none;
 }
 
