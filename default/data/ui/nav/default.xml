@@ -4,5 +4,8 @@
     <view name="SearchByMAC" />
     <view name="ConfigureAPI" />
   </collection>
-  <view name="Blacklist" />
+  <collection label="Datastores">
+    <view name="Blacklist" />
+    <view name="ContactList" />
+  </collection>
 </nav>

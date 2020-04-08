@@ -28,3 +28,8 @@ modtime = 1585122959.013313600
 owner = admin
 version = 8.0.2
 modtime = 1585122976.200966900
+
+[indexes/contacts_csv]
+owner = admin
+version = 8.0.3
+modtime = 1586326004.429753900
