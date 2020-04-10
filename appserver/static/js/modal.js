@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
   const SearchManager = require('splunkjs/mvc/searchmanager');
   const mvc = require('splunkjs/mvc');
+  const helper = require('/static/app/SPA/js/helper.js');
 
   return {
     renderModal: function (identity, toDate, fromDate) {
@@ -22,22 +23,11 @@ define(function (require, exports, module) {
       });
 
       const historyResults = historySearch.data('results');
-      processResults(historyResults);
+      
+      historyResults.on('data', () => {
+        const html = helper.processResults(historyResults)
+        $('#history').html(html);
+      });
     },
   }
 });
-
-// HELPER FUNCTIONS
-function processResults(historyResults) {
-  historyResults.on('data', function () {
-    const resultArray = historyResults.data().rows;
-    const MACAddresses = resultArray.map(x => x[1])
-
-    const html = MACAddresses.reduce((acc, x) => {
-      const div = "<div id = \"MAC-address\">" + x + "</div>";
-      return acc + div;
-    }, ' ');
-
-    $('#history').html(html);
-  });
-}

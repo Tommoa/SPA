@@ -1,4 +1,5 @@
 define(function (require, exports, module) {
+  const helper = require('/static/app/SPA/js/helper.js');
 
   const SimpleSplunkView = require('splunkjs/mvc/simplesplunkview');
   const _ = require('underscore');
@@ -9,22 +10,10 @@ define(function (require, exports, module) {
       data: 'results'
     },
 
+    // TODO - this needs to be refactored so it can be unit tested
     formatData: function (data) {
-      let profilesHTML = '';
-
-      _.each(data, function (row, index) {
-        const ID = row[0];
-
-        const profileCard = 
-        ` <div id=profile-container>
-            <div id='identity'>
-              ${ID}
-            </div>
-          </div> `
-        profilesHTML += profileCard;
-      });
-
-      return profilesHTML;
+      const profilesHTML = helper.formatData(data);
+      return profilesHTML; 
     },
 
     createView: function () {
