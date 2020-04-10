@@ -53,8 +53,6 @@ require([
 
         var searchBlacklist = new SearchManager({
             "id": "searchBlacklist",
-            "earliest_time": "-24h@h",
-            "latest_time": "now",
             "search": " | inputlookup myblacklist_lookup | eval  IpAddress = _key | table IpAddress, Host, Severity",
             "preview": true
         }, { tokens: true });

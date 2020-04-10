@@ -33,11 +33,11 @@ define(function (require, exports, module) {
 function processResults(historyResults) {
   historyResults.on('data', function () {
     const resultArray = historyResults.data().rows;
-    const MACAddresses = resultArray.map(x => x[1])
-    const first_name = resultArray.map(x => x[2], y => y[0])
-    const last_name = resultArray.map(x => x[3], y => y[0])
-    const email = resultArray.map(x => x[4], y => y[0])
-    const phone_number = resultArray.map(x => x[5], y => y[0])
+    const MACAddresses = resultArray.map(x => x[1]);
+    const first_name = resultArray.map(x => x[2], y => y[0]);
+    const last_name = resultArray.map(x => x[3], y => y[0]);
+    const email = resultArray.map(x => x[4], y => y[0]);
+    const phone_number = resultArray.map(x => x[5], y => y[0]);
 
     const html = MACAddresses.reduce((acc, x) => {
       const div = "<div id = \"MAC-address\">" + x + "</div>";

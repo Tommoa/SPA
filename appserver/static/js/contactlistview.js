@@ -24,8 +24,6 @@ require([
 
         var searchContactList = new SearchManager({
             "id": "searchContactList",
-            "earliest_time": "-24h@h",
-            "latest_time": "now",
             "search": " | inputlookup mycontacts_lookup | eval  ID = _key | table ID, LastName, FirstName, Email, PhoneNumber",
             "preview": true
         }, { tokens: true });
