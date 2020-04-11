@@ -1,0 +1,15 @@
+<dashboard script="js/contactlistview.js">
+    <label>Contact List</label>
+    <row>
+        <html>
+        <div id="addcsv_btn">
+            <button class="btn btn-primary addCsvButton">Refresh CSV Folder</button>
+        </div>
+        <panel>
+            <h4>Description</h4>
+            <div id="display"></div>
+        </panel>
+
+        </html>
+    </row>
+</dashboard>

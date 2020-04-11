@@ -4,26 +4,28 @@
     <panel>
       <html>
       <div id='MACaddress'/>
-            
+
       <div id='datecontainer'>
           From: <div id='from'/>
           To: <div id='to'/>
       </div>
 
       <div class="center-contents" id='profilesView' />
-    
+
       <!-- Modal -->
       <div class='modal fade modal-lg' id='profile-modal' tabindex='-1' role='dialog'>
         <div class='modal-content'>
           <div id="modal-wrapper">
             <div id='title'>
-              <div id='ID'> 21969062 </div>
+              <div id='ID'></div>
             </div>
             <div id='header'>
               User Details
               <div id='contact-details'>
-                <div>21969062@student.uwa.edu.au</div>
-                <div>042928403</div>
+                <div id='FirstName'></div>
+                <div id='LastName'></div>
+                <div id='Email'></div>
+                <div id='PhoneNumber'></div>
               </div>
             </div>
             <div id='header'>
