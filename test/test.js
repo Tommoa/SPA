@@ -2,7 +2,8 @@
 //  qunit
 
 require("amd-loader");
-const helper = require("../appserver/static/js/helper.js")
+const helper = require("../appserver/static/js/helper.js");
+const date = require("../appserver/static/js/date.js");
 
 QUnit.test("format date with valid date object", function(assert) {
   // months are indexed from 0..11
@@ -10,7 +11,7 @@ QUnit.test("format date with valid date object", function(assert) {
 
   const expected = "2020-05-10";
 
-  const actual = helper.formatDateToString(newDate);
+  const actual = date.formatDateToString(newDate);
 
   assert.ok( expected === actual, "ok" );
 });
@@ -60,4 +61,3 @@ QUnit.test("return the correct HTML for a valid list of MAC addresses", function
 
   assert.ok(expected === actual, "ok");
 });
-
