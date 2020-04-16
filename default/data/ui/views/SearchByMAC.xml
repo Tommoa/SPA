@@ -14,6 +14,7 @@
 
       <!-- Modal -->
       <div class='modal fade modal-lg' id='profile-modal' tabindex='-1' role='dialog'>
+        <div class='loader'></div>
         <div class='modal-content'>
           <div id="modal-wrapper">
             <div id='title'>
