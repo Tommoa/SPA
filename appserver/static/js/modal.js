@@ -27,10 +27,11 @@ define(function (require, exports, module) {
       const historyResults = historySearch.data('results');
       processResults(historyResults);
 
-      setTimeout(function() {
-        $(".loader").fadeOut("slow");
-      }, 2000);
-
+      $(document).ready(function() {
+          setTimeout(function() {
+              $(".loader").fadeOut("slow");
+          }, 2000);
+      });
     },
   }
 });
