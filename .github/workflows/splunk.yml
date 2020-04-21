@@ -27,4 +27,4 @@ jobs:
         cd ${GITHUB_WORKSPACE}
         tar -zcvf SPA.tar.gz appserver bin default static metadata/default.meta README.md
         splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all
-        splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all | grep FAILURE && exit 1 || exit 0
+        splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all | grep FAILURE > /dev/null && exit 1 || exit 0
