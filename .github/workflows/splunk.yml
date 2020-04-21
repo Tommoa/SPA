@@ -46,6 +46,12 @@ jobs:
           mkdir SPA
           tar -xzvf SPA.tar.gz/SPA.tar.gz -C SPA
       - name: Push to server
-        run: |
-          rsync -e 'ssh -i <(echo "${{ secrets.CI_KEY }}")' -azP SPA ${{ secrets.CI_SERVER }}:/opt/splunk/etc/apps/
-          ssh -i <(echo ${{ secrets.CI_KEY }}) ${{ secrets.CI_SERVER }} /opt/splunk/bin/splunk restart
+        uses: trendyminds/github-actions-rsync@master
+        with:
+          RSYNC_OPTIONS: -avzr --delete
+          RSYNC_TARGET: /opt/splunk/etc/apps/
+          RSYNC_SOURCE: SPA
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CI_KEY }}
+          SSH_USERNAME: ${{ secrets.CI_USERNAME }}
+          SSH_HOSTNAME: ${{ secrets.CI_HOSTNAME }}
