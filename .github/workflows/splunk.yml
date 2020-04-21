@@ -50,7 +50,7 @@ jobs:
         with:
           RSYNC_OPTIONS: -avzr --delete
           RSYNC_TARGET: /opt/splunk/etc/apps/
-          RSYNC_SOURCE: SPA
+          RSYNC_SOURCE: /SPA
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CI_KEY }}
           SSH_USERNAME: ${{ secrets.CI_USERNAME }}
