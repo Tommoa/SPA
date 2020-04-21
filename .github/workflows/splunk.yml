@@ -43,7 +43,7 @@ jobs:
           name: SPA.tar.gz
       - name: Unarchive App
         run: |
-          ls -la SPA.tar.gz
+          mkdir SPA
           tar -xzvf SPA.tar.gz/SPA.tar.gz -C SPA
       - name: Push to server
         run: |
