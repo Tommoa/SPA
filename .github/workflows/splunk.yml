@@ -43,7 +43,8 @@ jobs:
           name: SPA.tar.gz
       - name: Unarchive App
         run: |
-          tar -xzvf SPA.tar.gz
+          unzip SPA.tar.gz.zip
+          tar -xzvf SPA.tar.gz -C SPA
       - name: Push to server
         run: |
           rsync -e "ssh -i <(echo ${{ secrets.CI_KEY }})" -azP SPA ${{ secrets.CI_SERVER }}:/opt/splunk/etc/apps/
