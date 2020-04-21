@@ -57,4 +57,4 @@ jobs:
           SSH_HOSTNAME: ${{ secrets.CI_HOSTNAME }}
       - name: Restart Splunk
         run: |
-            ssh -i <(echo ${{ secrets.CI_KEY }}) ${{ secrets.CI_USERNAME }}@${{ secrets.CI_HOSTNAME }} /opt/splunk/bin/splunk restart
+            ssh -i <(echo "${{ secrets.CI_KEY }}") ${{ secrets.CI_USERNAME }}@${{ secrets.CI_HOSTNAME }} /opt/splunk/bin/splunk restart
