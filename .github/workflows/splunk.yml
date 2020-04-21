@@ -47,5 +47,5 @@ jobs:
           tar -xzvf SPA.tar.gz/SPA.tar.gz -C SPA
       - name: Push to server
         run: |
-          rsync -e "ssh -i <(echo '${{ secrets.CI_KEY }}')" -azP SPA ${{ secrets.CI_SERVER }}:/opt/splunk/etc/apps/
+          rsync -e 'ssh -i <(echo "${{ secrets.CI_KEY }}")' -azP SPA ${{ secrets.CI_SERVER }}:/opt/splunk/etc/apps/
           ssh -i <(echo ${{ secrets.CI_KEY }}) ${{ secrets.CI_SERVER }} /opt/splunk/bin/splunk restart
