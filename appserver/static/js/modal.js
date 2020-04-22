@@ -6,7 +6,6 @@ define(function (require, exports, module) {
     renderModal: function (identity, toDate, fromDate) {
       $('#profile-modal').modal('show');
       $('#ID').html('&nbsp' + identity);
-      $('.loader').show();
 
       const searchString = `
         * is-ise cise_passed_authentications
@@ -26,12 +25,6 @@ define(function (require, exports, module) {
 
       const historyResults = historySearch.data('results');
       processResults(historyResults);
-
-      $(document).ready(function() {
-          setTimeout(function() {
-              $(".loader").fadeOut("slow");
-          }, 2000);
-      });
     },
   }
 });

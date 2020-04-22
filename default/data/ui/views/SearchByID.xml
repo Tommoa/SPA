@@ -1,4 +1,4 @@
-<dashboard script='js/searchbyidview.js' stylesheet='css/quicksand.css, css/alerts.css, css/modal.css, css/common.css'>
+<dashboard script='js/searchbyidview.js' stylesheet='css/quicksand.css, css/alerts.css, css/modal.css, css/common.css, css/loader.css'>
   <label>Search By ID</label>
   <row>
     <panel>
