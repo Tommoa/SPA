@@ -1,4 +1,4 @@
-<dashboard script='js/configure.js' stylesheet='css/quicksand.css, css/configure.css'>
+<dashboard script='js/view/configure.js' stylesheet='css/quicksand.css, css/configure.css'>
   <label>Configure API</label>
   <row>
     <panel>

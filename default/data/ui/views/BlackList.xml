@@ -1,4 +1,4 @@
-<dashboard script="js/blacklistview.js">
+<dashboard script="js/view/blacklistview.js">
     <label>Website Blacklist</label>
     <row>
         <html>

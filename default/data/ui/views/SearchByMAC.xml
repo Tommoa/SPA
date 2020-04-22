@@ -1,4 +1,4 @@
-<dashboard script='js/searchbyMACview.js' stylesheet='css/quicksand.css, css/alerts.css, css/modal.css, css/common.css'>
+<dashboard script='js/view/searchbyMACview.js' stylesheet='css/quicksand.css, css/alerts.css, css/modal.css, css/common.css'>
   <label>Search By MAC</label>
   <row>
     <panel>
