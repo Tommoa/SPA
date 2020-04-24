@@ -1,13 +1,14 @@
 require([
-  "/static/app/SPA/js/api.js",
+  "/static/app/SPA/js/api/api.js",
+  "/static/app/SPA/js/helper/helper.js",
   "splunkjs/mvc",
   "splunkjs/mvc/textinputview",
   "splunkjs/mvc/simplexml/ready!"
-], function(API, mvc, TextInputView) {
+], function(API, helper, mvc, TextInputView) {
   const tokens = mvc.Components.get("default");
 
   // populate the input field with the value of the cookie if set
-  const baseURLValue = API.getCookie("baseURL", document.cookie);
+  const baseURLValue = helper.splitString("baseURL", document.cookie);
   if (baseURLValue !== undefined) {
     tokens.set("baseURL", baseURLValue);
   }

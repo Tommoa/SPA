@@ -1,6 +1,7 @@
 define(function (require, exports, module) {
   const SearchManager = require('splunkjs/mvc/searchmanager');
   const mvc = require('splunkjs/mvc');
+  const helper = require('/static/app/SPA/js/helper.js');
 
   return {
     renderModal: function (identity, toDate, fromDate) {
@@ -24,31 +25,36 @@ define(function (require, exports, module) {
       });
 
       const historyResults = historySearch.data('results');
-      processResults(historyResults);
+
+      historyResults.on('data', () => {
+        const [history, first_name, last_name, email, phone_number] = helper.processResults(historyResults)
+        $('#history').html(history);
+        $('#FirstName').html('First Name: ' + first_name);
+        $('#LastName').html('Last Name: ' + last_name);
+        $('#Email').html('Email Address: ' + email);
+        $('#PhoneNumber').html('Phone Number: ' + phone_number);
+      });
     },
   }
 });
+// <<<<<<< HEAD
+// =======
 
-// HELPER FUNCTIONS
-function processResults(historyResults) {
-  historyResults.on('data', function () {
-    const resultArray = historyResults.data().rows;
-    const MACAddresses = resultArray.map(x => x[1]);
-    const first_name = resultArray.map(x => x[2], y => y[0]);
-    const last_name = resultArray.map(x => x[3], y => y[0]);
-    const email = resultArray.map(x => x[4], y => y[0]);
-    const phone_number = resultArray.map(x => x[5], y => y[0]);
+// // HELPER FUNCTIONS
+// function processResults(historyResults) {
+//   historyResults.on('data', function () {
+//     const resultArray = historyResults.data().rows;
+//     const MACAddresses = resultArray.map(x => x[1]);
+    
 
-    const html = MACAddresses.reduce((acc, x) => {
-      const div = "<div id = \"MAC-address\">" + x + "</div>";
-      return acc + div;
-    }, ' ');
+//     const html = MACAddresses.reduce((acc, x) => {
+//       const div = "<div id = \"MAC-address\">" + x + "</div>";
+//       return acc + div;
+//     }, ' ');
 
-    $('#history').html(html);
-    $('#FirstName').html('First Name: ' + first_name);
-    $('#LastName').html('Last Name: ' + last_name);
-    $('#Email').html('Email Address: ' + email);
-    $('#PhoneNumber').html('Phone Number: ' + phone_number);
+//     $('#history').html(html);
+    
 
-  });
-}
+//   });
+// }
+// >>>>>>> master

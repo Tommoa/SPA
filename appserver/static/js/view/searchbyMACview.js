@@ -2,7 +2,7 @@ require([
   "/static/app/SPA/js/retrieveProfiles.js",
   "/static/app/SPA/js/modal.js",
   "/static/app/SPA/js/date.js",
-  "/static/app/SPA/js/api.js",
+  "/static/app/SPA/js/api/api.js",
   "splunkjs/mvc",
   "splunkjs/mvc/searchmanager",
   "splunkjs/mvc/textinputview",
