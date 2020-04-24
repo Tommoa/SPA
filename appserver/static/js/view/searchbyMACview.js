@@ -66,11 +66,6 @@ require([
     const toDate = tokens.get('latest');
     const fromDate = tokens.get('earliest');
 
-    //Debugging
-    console.dir(identity);
-    console.dir(toDate);
-    console.dir(fromDate);
-
     Modal.renderModal(identity, toDate, fromDate);
     helper.showLoader();
 
