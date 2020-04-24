@@ -5,7 +5,7 @@
     <view name="ConfigureAPI" />
   </collection>
   <collection label="Datastores">
-    <view name="Blacklist" />
+    <view name="BlackList" />
     <view name="ContactList" />
   </collection>
 </nav>
