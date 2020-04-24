@@ -61,16 +61,35 @@ require([
   $('#profilesView').on('click', function (event) {
     let identity = $(this).find('#identity').text();
     identity = identity.replace(/\s/g,'');
-    
+
     const toDate = tokens.get('latest');
     const fromDate = tokens.get('earliest');
 
+    //Debugging
     console.dir(identity);
     console.dir(toDate);
     console.dir(fromDate);
 
+    $('.loader').show();
+
     Modal.renderModal(identity, toDate, fromDate);
+
+    //Check if modal has finished loading all elements
+    const timeOutLength = 5000;
+    const timeInterval = 500;
+    let time = 0;
+    let name = document.getElementById('FirstName').innerHTML;
+
+    const loading = setInterval(function() {
+        name = document.getElementById('FirstName').innerHTML;
+        if (name !== '' || time >= timeOutLength) {
+            setTimeout(function() {
+                $(".loader").fadeOut("slow");
+                clearInterval(loading);
+            }, 100);
+        }
+        time += timeInterval;
+    }, timeInterval);
+
   });
-
 });
-

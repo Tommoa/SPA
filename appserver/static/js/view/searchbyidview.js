@@ -63,10 +63,27 @@ require([
     const toDate = tokens.get('latest');
     const fromDate = tokens.get('earliest');
 
+    $('.loader').show();
     if(identity !== undefined) {
       Modal.renderModal(identity, toDate, fromDate);
-    }
+
+      //Check if modal has finished loading all elements
+      const timeOutLength = 5000;
+      const timeInterval = 500;
+      let time = 0;
+      let name = document.getElementById('FirstName').innerHTML;
+
+      const loading = setInterval(function() {
+        name = document.getElementById('FirstName').innerHTML;
+        if(name !== '' || time >= timeOutLength) {
+          setTimeout(function() {
+              $(".loader").fadeOut("slow");
+              clearInterval(loading);
+          }, 100);
+        }
+        time += timeInterval;
+      }, timeInterval);
+    };
+
   });
-
 });
-
