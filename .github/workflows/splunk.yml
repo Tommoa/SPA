@@ -3,8 +3,7 @@ name: Splunk app
 on: [push]
 
 jobs:
-  build:
-
+  appinspect:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 4
@@ -28,3 +27,31 @@ jobs:
         tar -zcvf SPA.tar.gz appserver bin default static metadata/default.meta README.md
         splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all
         splunk-appinspect inspect SPA.tar.gz --mode test --max-messages all | grep FAILURE > /dev/null && exit 1 || exit 0
+    - name: Upload App
+      uses: actions/upload-artifact@v1
+      with:
+        name: SPA.tar.gz
+        path: SPA.tar.gz
+  server:
+    if: success() && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    needs: appinspect
+    steps:
+      - name: Get App
+        uses: actions/download-artifact@v1
+        with:
+          name: SPA.tar.gz
+      - name: Unarchive App
+        run: |
+          mkdir SPA
+          tar -xzvf SPA.tar.gz/SPA.tar.gz -C SPA
+      - name: Push to server
+        uses: trendyminds/github-actions-rsync@master
+        with:
+          RSYNC_OPTIONS: -avzr --delete
+          RSYNC_TARGET: /opt/splunk/etc/apps/
+          RSYNC_SOURCE: /SPA
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.CI_KEY }}
+          SSH_USERNAME: ${{ secrets.CI_USERNAME }}
+          SSH_HOSTNAME: ${{ secrets.CI_HOSTNAME }}
