@@ -33,7 +33,7 @@ jobs:
         name: SPA.tar.gz
         path: SPA.tar.gz
   server:
-    if: success() && github.ref == 'refs/heads/master'
+    if: success() # && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     needs: appinspect
     steps:
@@ -55,3 +55,10 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.CI_KEY }}
           SSH_USERNAME: ${{ secrets.CI_USERNAME }}
           SSH_HOSTNAME: ${{ secrets.CI_HOSTNAME }}
+      - name: Restart Splunk
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.CI_HOSTNAME }}
+          username: ${{ secrets.CI_USERNAME }}
+          key: ${{ secrets.CI_KEY }}
+          script: /opt/splunk/bin/splunk restart
