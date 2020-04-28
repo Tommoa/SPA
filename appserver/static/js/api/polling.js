@@ -1,10 +1,4 @@
 define(function (require, exports, module) {
-  const helper = require('/static/app/SPA/js/helper/helper.js');
-  
-  exports.splitString = function(name, cookiesString, delimiter) {
-    return helper.splitString(name, cookiesString, delimiter);
-  }
-
   exports.getLatestAlert = function () {
     startPolling();
   };
@@ -15,7 +9,7 @@ function startPolling() {
 
   setInterval(function () {
     retrieveLatestAlert();
-  }, 10000);
+  }, 60000);
 }
 
 function retrieveBaseURL() {
@@ -64,10 +58,12 @@ function formatAlert(alert) {
 async function retrieveLatestAlert() {
   const BASE_URL = retrieveBaseURL();
 
-  const route = "get_alert";
+  const header = await login(BASE_URL);
+
+  const route = "get_latest_alert/";
   const endpoint = BASE_URL + route;
 
-  const alert = await fetch(endpoint).then(function (response) {
+  const alert = await fetch(endpoint, {header}).then(function (response) {
     return response.json();
   });
 
@@ -75,4 +71,26 @@ async function retrieveLatestAlert() {
   $(".latest-alert-container").html(alertHTML);
 }
 
+async function login(BASE_URL) {
+  const route = "login/";
+  const endpoint = BASE_URL + route;
 
+  const username = "Username";
+  const password = "Group1Password";
+  let authString = `${username}:${password}`;
+
+  const headers = new Headers({
+    "Content-Type": "application/json",
+    "Authorization": "Basic " + btoa(authString),
+    "Access-Control-Allow-Origin": "*"
+  });
+
+  const response = await fetch(endpoint, {headers}).then(response => {return response.json()});
+  const jwt = response.token;
+  
+  const jwtHeader = new Headers({
+    "x-access-token": jwt
+  })
+
+  return jwtHeader;
+}
