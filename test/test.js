@@ -2,7 +2,7 @@
 //  qunit
 
 require("amd-loader");
-const helper = require("../appserver/static/js/helper.js");
+const helper = require("../appserver/static/js/helper/helper.js");
 const date = require("../appserver/static/js/date.js");
 
 QUnit.test("format date with valid date object", function(assert) {

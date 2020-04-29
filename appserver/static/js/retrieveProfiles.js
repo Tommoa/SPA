@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-  const helper = require('/static/app/SPA/js/helper.js');
+  const helper = require('/static/app/SPA/js/helper/helper.js');
 
   const SimpleSplunkView = require('splunkjs/mvc/simplesplunkview');
   const _ = require('underscore');
@@ -13,7 +13,7 @@ define(function (require, exports, module) {
     // TODO - this needs to be refactored so it can be unit tested
     formatData: function (data) {
       const profilesHTML = helper.formatData(data);
-      return profilesHTML; 
+      return profilesHTML;
     },
 
     createView: function () {

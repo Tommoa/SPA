@@ -3,12 +3,13 @@ require([
   "/static/app/SPA/js/modal.js",
   "/static/app/SPA/js/date.js",
   "/static/app/SPA/js/api/api.js",
+  "/static/app/SPA/js/helper/helper.js",
   "splunkjs/mvc",
   "splunkjs/mvc/searchmanager",
   "splunkjs/mvc/textinputview",
   'splunkjs/mvc/tokenutils',
   "splunkjs/mvc/simplexml/ready!"
-], function (ProfilesView, Modal, Date, API, mvc, SearchManager, TextInputView, TokenUtils) {
+], function (ProfilesView, Modal, Date, API, helper, mvc, SearchManager, TextInputView, TokenUtils) {
 
   const tokens = mvc.Components.get('default');
   const [todate, fromdate] = Date.getToFromDate();
@@ -63,26 +64,9 @@ require([
     const toDate = tokens.get('latest');
     const fromDate = tokens.get('earliest');
 
-    $('.loader').show();
     if(identity !== undefined) {
       Modal.renderModal(identity, toDate, fromDate);
-
-      //Check if modal has finished loading all elements
-      const timeOutLength = 5000;
-      const timeInterval = 500;
-      let time = 0;
-      let name = document.getElementById('FirstName').innerHTML;
-
-      const loading = setInterval(function() {
-        name = document.getElementById('FirstName').innerHTML;
-        if(name !== '' || time >= timeOutLength) {
-          setTimeout(function() {
-              $(".loader").fadeOut("slow");
-              clearInterval(loading);
-          }, 100);
-        }
-        time += timeInterval;
-      }, timeInterval);
+      helper.showLoader();
     };
 
   });
