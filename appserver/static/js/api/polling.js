@@ -58,12 +58,12 @@ function formatAlert(alert) {
 async function retrieveLatestAlert() {
   const BASE_URL = retrieveBaseURL();
 
-  const header = await login(BASE_URL);
-
+  const headers = await login(BASE_URL);
+  
   const route = "get_latest_alert/";
   const endpoint = BASE_URL + route;
 
-  const alert = await fetch(endpoint, {header}).then(function (response) {
+  const alert = await fetch(endpoint, {headers}).then(function (response) {
     return response.json();
   });
 
