@@ -1,0 +1,11 @@
+<dashboard script='js/view/mapview.js' stylesheet='css/common.css'>
+  <label>Map</label>
+  <row>
+    <panel>
+      <html>
+        <div id="outdated" />
+        <div id="map" />
+      </html>
+    </panel>
+  </row>
+</dashboard>
