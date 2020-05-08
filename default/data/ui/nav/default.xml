@@ -5,6 +5,7 @@
   </collection>
   <collection label="Statistics">
     <view name="Map" />
+    <view name="AlertList" />
   </collection>
   <collection label="Datastores">
     <view name="BlackList" />
