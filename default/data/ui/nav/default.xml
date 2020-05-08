@@ -2,10 +2,15 @@
   <collection label="Search">
     <view name="SearchByID" />
     <view name="SearchByMAC" />
-    <view name="ConfigureAPI" />
+  </collection>
+  <collection label="Statistics">
+    <view name="Map" />
   </collection>
   <collection label="Datastores">
     <view name="BlackList" />
     <view name="ContactList" />
+  </collection>
+  <collection label="Configure">
+    <view name="ConfigureAPI" />
   </collection>
 </nav>
