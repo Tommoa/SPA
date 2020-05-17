@@ -11,6 +11,11 @@ define(function (require, exports, module) {
     return data;
   }
 
+  exports.retrieveStatistics = async function() {
+    const data = await retrieveStatistics();
+    return data;
+  }
+
   exports.getLatestAlert = function () {
     startPolling();
   };
@@ -110,6 +115,21 @@ define(function (require, exports, module) {
     });
     
     return alerts;
+  }
+
+  async function retrieveStatistics() {
+    const BASE_URL = retrieveBaseURL();
+    
+    const headers = await login(BASE_URL);
+  
+    const route = "get_statistics/";
+    const endpoint = BASE_URL + route;
+  
+    let statistics = await fetch(endpoint, {headers}).then(function(response) {
+      return response.json();
+    });
+    
+    return statistics;
   }
   
   async function login(BASE_URL) {

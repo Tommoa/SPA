@@ -1,0 +1,10 @@
+<dashboard  script='js/view/statisticsview.js' stylesheet='css/quicksand.css, css/configure.css'>
+  <label> Statistics</label>
+  <row>
+    <panel>
+      <html>
+        This is where the statistics go...
+      </html>
+    </panel>
+  </row>
+</dashboard>

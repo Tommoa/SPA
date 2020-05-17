@@ -1,4 +1,7 @@
 <nav>
+  <collection label="Dashboard">
+    <view name="Statistics" />
+  </collection>
   <collection label="Search">
     <view name="SearchByID" />
     <view name="SearchByMAC" />
