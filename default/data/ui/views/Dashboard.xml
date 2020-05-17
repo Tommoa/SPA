@@ -6,19 +6,19 @@
         <div class="brute-force-container">
           <div class="daily-alert-count">
             <div class="title"> Daily Alert Count </div>
-            <div class="content">  </div>
+            <div class="content" />
           </div>
           <div class="num-attempts">
             <div class="title"> Brute Force Attempts </div>
-            <div class="content"> </div>
+            <div class="content" />
           </div>
           <div class="num-failures">
             <div class="title"> Brute Force Failures </div>
-            <div class="content"> </div>
+            <div class="content" />
           </div>
           <div class="num-successes">
             <div class="title"> Brute Force Successes </div>
-            <div class="content"> </div>
+            <div class="content" />
           </div>
         </div>
       </html>
@@ -28,7 +28,7 @@
     <panel>
       <html>
           <div class="title"> Attempted Logins Per Device </div>
-          <div class="multi-logins"></div>
+          <div class="multi-logins" />
       </html>
     </panel>
   </row>
@@ -36,7 +36,7 @@
     <panel>
       <html>
           <div class="title"> Alerts Per Category </div>
-          <div class="num-alerts-per-cat"></div>
+          <div class="num-alerts-per-cat" />
       </html>
     </panel>
   </row>
@@ -44,7 +44,7 @@
       <panel>
         <html>
             <div class="title"> Threat Count Per User </div>
-            <div class="user-threat-count"></div>
+            <div class="user-threat-count" />
         </html>
       </panel>
   </row>
