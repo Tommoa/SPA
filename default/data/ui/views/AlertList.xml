@@ -1,0 +1,10 @@
+<dashboard script='js/view/alertlistview.js' stylesheet='css/common.css, css/alerts.css'>
+  <label> Alert List </label>
+  <row>
+    <panel>
+      <html>
+        <div class="alerts-list" />
+      </html>
+    </panel>
+  </row>
+</dashboard>
