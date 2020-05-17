@@ -9,15 +9,15 @@
             <div class="content">  </div>
           </div>
           <div class="num-attempts">
-            <div class="title"> Total Attempts </div>
+            <div class="title"> Brute Force Attempts </div>
             <div class="content"> </div>
           </div>
           <div class="num-failures">
-            <div class="title"> Total Failures </div>
+            <div class="title"> Brute Force Failures </div>
             <div class="content"> </div>
           </div>
           <div class="num-successes">
-            <div class="title"> Total Successes </div>
+            <div class="title"> Brute Force Successes </div>
             <div class="content"> </div>
           </div>
         </div>

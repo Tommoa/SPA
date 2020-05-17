@@ -12,6 +12,7 @@
 .brute-force-container .num-successes {
   width: 200px;
   height: 200px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
