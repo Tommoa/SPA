@@ -5,7 +5,7 @@ require("amd-loader");
 const helper = require("../appserver/static/js/helper/helper.js");
 const date = require("../appserver/static/js/date.js");
 
-QUnit.test("format date with valid date object", function(assert) {
+QUnit.test("return a formatted date given a valid date object", function(assert) {
   // months are indexed from 0..11
   const newDate = new Date(2020, 4, 10)
 
@@ -42,6 +42,15 @@ QUnit.test("return the correct HTML of a profile-container for a valid dataset",
   assert.ok(expected === actual, "ok");
 })
 
+QUnit.test("return the correct string given a longer string to split", function(assert) {
+	const string = "baseURL=http://127.0.0.1:5000/; splunkweb_csrf_token_8000=11572272911242863278; token_key=11572272911242863278; experience_id=cd698292-44c5-8e90-4337-7b89f938f974";
+	const expected = "http://127.0.0.1:5000/";
+
+    const actual = helper.splitString("baseURL", string);
+
+    assert.ok(expected === actual, "ok");
+});
+
 QUnit.test("return the correct HTML for a valid list of MAC addresses", function(assert) {
   const historyResults = {
     data: () => {
@@ -53,7 +62,7 @@ QUnit.test("return the correct HTML for a valid list of MAC addresses", function
     }
   };
 
-  let actual = helper.processResults(historyResults);
+  let [actual, , , , ] = helper.processResults(historyResults);
   actual = actual.trim();
 
   let expected = ' <div id = "MAC-address">03:120i:203i02:1021</div>'

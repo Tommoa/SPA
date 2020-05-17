@@ -17,7 +17,7 @@ define(function (require, exports, module) {
 
 });
 
-function splitString(name, stringList, delimiter) {
+function splitString(name, stringList) {
   const splitStrings = stringList.split("; ");
 
   const stringValue = splitStrings.reduce((acc, string) => {
