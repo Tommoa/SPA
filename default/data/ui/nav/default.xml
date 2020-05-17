@@ -1,6 +1,6 @@
 <nav>
   <collection label="Dashboard">
-    <view name="Statistics" />
+    <view name="Dashboard" />
   </collection>
   <collection label="Search">
     <view name="SearchByID" />
