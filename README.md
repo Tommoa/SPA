@@ -85,7 +85,6 @@ Unit tests can be found in the /SPA/test/ folder. The tests are performed using 
 
 >npm install -g qunit
 
-
 >npm install amd-loader
 
 Run the tests in command line in the root SPA directory.
