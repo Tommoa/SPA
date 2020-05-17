@@ -82,7 +82,10 @@ The XML files can be found in the /SPA/default/data/views/ folder. Each file ref
 
 ### Unit Tests
 Unit tests can be found in the /SPA/test/ folder. The tests are performed using the QUnit testing framework and requires the following packages.
+
 >npm install -g qunit
+
+
 >npm install amd-loader
 
 Run the tests in command line in the root SPA directory.
