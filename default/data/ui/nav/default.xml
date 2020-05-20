@@ -1,10 +1,14 @@
 <nav>
+  <collection label="Dashboard">
+    <view name="Dashboard" />
+  </collection>
   <collection label="Search">
     <view name="SearchByID" />
     <view name="SearchByMAC" />
   </collection>
   <collection label="Statistics">
     <view name="Map" />
+    <view name="AlertList" />
   </collection>
   <collection label="Datastores">
     <view name="BlackList" />

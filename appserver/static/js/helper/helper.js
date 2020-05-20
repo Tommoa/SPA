@@ -15,6 +15,10 @@ define(function (require, exports, module) {
     return showLoader();
   }
 
+  exports.buildHTMLTable = function(data, headers) {
+    return buildHTMLTable(data, headers);
+  }
+
 });
 
 function splitString(name, stringList) {
@@ -86,3 +90,33 @@ function showLoader() {
     }, 500);
   }
 }
+
+function buildHTMLTable(data, headers) {
+  let table = "<table class='statistics-table'><tr>";
+
+  headers.map((header) => {
+    table += `<th> ${header} </th>`;
+  });
+
+  table += "</tr>";
+
+  const keys = Object.keys(data);
+
+  keys.map((key) => {
+    const val = data[key];
+
+    const html = `
+    <tr>
+      <td>${key}</td>
+      <td>${val}</td>
+    </tr>
+  `;
+
+    table += html;
+  });
+
+  table += "</table>";
+
+  return table;
+}
+

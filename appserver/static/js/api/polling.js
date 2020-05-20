@@ -6,6 +6,16 @@ define(function (require, exports, module) {
     return data;
   };
 
+  exports.retrieveAlerts = async function() {
+    const data = await retrieveAlerts();
+    return data;
+  }
+
+  exports.retrieveStatistics = async function() {
+    const data = await retrieveStatistics();
+    return data;
+  }
+
   exports.getLatestAlert = function () {
     startPolling();
   };
@@ -89,6 +99,36 @@ define(function (require, exports, module) {
     });
     
     return heatmapData;
+  }
+
+  async function retrieveAlerts() {
+    const BASE_URL = retrieveBaseURL();
+    
+    const headers = await login(BASE_URL);
+  
+    const route = "get_alerts/";
+    const endpoint = BASE_URL + route;
+  
+    let alerts = await fetch(endpoint, {headers}).then(function(response) {
+      return response.json();
+    });
+    
+    return alerts;
+  }
+
+  async function retrieveStatistics() {
+    const BASE_URL = retrieveBaseURL();
+    
+    const headers = await login(BASE_URL);
+  
+    const route = "get_statistics/";
+    const endpoint = BASE_URL + route;
+  
+    let statistics = await fetch(endpoint, {headers}).then(function(response) {
+      return response.json();
+    });
+    
+    return statistics;
   }
   
   async function login(BASE_URL) {
