@@ -7,13 +7,15 @@ https://www.selenium.dev/documentation/en/webdriver/driver_requirements/#quick-r
 const { actions, Builder, By, Key, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
 
-function open_page(driver, page) {
-    driver.get(page);
+async function open_page(driver, page) {
+    await driver.get(page).then(async function () {
+    	await driver.sleep(2000);
+    });
 };
 
 
 //Test search pages
-async function test_search(driver, search_type, search_string) {
+async function test_search_page(driver, search_type, search_string) {
 	//Enter search string and from time
 	await driver.wait(until.elementLocated(By.css(search_type))).sendKeys(search_string);
 	await driver.findElement(By.xpath("//div[@id='from']//input")).sendKeys('01012010', Key.ENTER);
@@ -29,19 +31,19 @@ async function test_search(driver, search_type, search_string) {
 
 async function main() {
 	let driver = new Builder().forBrowser('chrome').build();
-	let home_page = 'http://localhost:8000/en-GB/app/SPA';
-	let id_page = '/SearchByID';
-	let mac_page = '/SearchByMAC';
+	let home_page = 'http://localhost:8000/en-GB/app/SPA/';
+	let id_page = 'SearchByID';
+	let mac_page = 'SearchByMAC';
 
 	await open_page(driver, home_page);
 
 	//Test searchByID
 	await open_page(driver, home_page+id_page);
-	await test_search(driver, '#studentid input', '21969062');
+	await test_search_page(driver, '#studentid input', '21969062');
 
 	//Test searchByMACAddress
 	await open_page(driver, home_page+mac_page);
-	await test_search(driver, '#MACaddress input', '24:92:0e:c2:62:ae');
+	await test_search_page(driver, '#MACaddress input', '24:92:0e:c2:62:ae');
 
 	//STOP CLOSING MY BROWSER
 	await setTimeout(function () {
