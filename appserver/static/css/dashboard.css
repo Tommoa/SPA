@@ -1,0 +1,64 @@
+.brute-force-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.brute-force-container .daily-alert-count,
+.brute-force-container .num-attempts,
+.brute-force-container .num-failures,
+.brute-force-container .num-successes {
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+  box-shadow: 10px 10px 5px 0px rgba(194, 194, 194, 1);
+}
+
+.multi-logins,
+.num-alerts-per-cat,
+.user-threat-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 25px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.num-successes .title {
+  margin-top: 0px;
+}
+
+.statistics-table {
+  width: 75%;
+}
+
+.statistics-table th {
+  background-color: #e1e6eb;
+  border-right: 1px solid white;
+}
+
+.statistics-table td, .statistics-table th {
+  text-align: left;
+  padding: 6px 12px 12px 6px;
+  width: 200px;
+}
+
+.statistics-table tr:nth-child(even) {
+  background-color: #f2f4f5;
+}
