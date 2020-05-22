@@ -35,7 +35,7 @@ QUnit.test("return the correct HTML of a profile-container for a valid dataset",
       <div id='identity'>
         ${data[1]}
       </div>
-    </div> `
+    </div> `;
 
     expected = expected.replace(/\n|\r| /g, "");
 
@@ -72,14 +72,12 @@ QUnit.test("return the correct HTML for a valid list of MAC addresses", function
 });
 
 QUnit.test('return a HTML table given key-value data and headers', function(assert) {
-    const data = [{
+    const payload = {
         "brute_force": {},
         "multi_logins_macs": {
             "00-E1-8C-76-5C-73": 46,
             "14-BD-61-9C-7E-39": 43,
-            "2C-61-F6-33-5C-BC": 43,
-            "34-42-62-11-3F-11": 40,
-            "38-89-2C-28-71-BD": 39
+            "2C-61-F6-33-5C-BC": 43
         },
         "num_alerts": {
             "24_hrs": 0
@@ -95,20 +93,33 @@ QUnit.test('return a HTML table given key-value data and headers', function(asse
             "00060691": 43,
             "00078323": 44
         }
-    }];
+    };
     const headers = ["MAC Address", "Count"];
+    const data = payload.multi_logins_macs;
 
     let actual = helper.buildHTMLTable(data, headers);
-    console.log(actual);
-    let expected =
-				    `
-					<table class='statistics-table'><tr><th> MAC Address </th><th> Count </th></tr>
-						<tr>
-							<td>0</td>
-							<td>//STUFF</td>
-						</tr>
-					</table>
-					`;
+
+    let expected =`
+        <table class='statistics-table'><tr><th> MAC Address </th><th> Count </th></tr>
+            <tr>
+                <td>00-E1-8C-76-5C-73</td>
+                <td>46</td>
+            </tr>
+
+            <tr>
+                <td>14-BD-61-9C-7E-39</td>
+                <td>43</td>
+            </tr>
+
+            <tr>
+                <td>2C-61-F6-33-5C-BC</td>
+                <td>43</td>
+            </tr>
+        </table>`;
+
+    var reg = new RegExp(/\s/g);
+    expected = expected.replace(reg,'');
+    actual = actual.replace(reg,'');
 
     assert.ok(expected === actual, 'ok');
-})
+});
