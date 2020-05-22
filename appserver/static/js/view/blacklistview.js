@@ -60,7 +60,7 @@ require([
         var addCsvBlacklist = new SearchManager({
             "id": "addCsvBlacklist",
             "autostart": "false",
-            "search": `index="blacklist_csv"
+            "search": `source="*blacklists*"
                         | dedup ip_address
                         | rename extracted_host as Host, severity as Severity
                         | table ip_address, Host, Severity
