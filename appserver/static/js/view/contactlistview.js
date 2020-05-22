@@ -31,7 +31,7 @@ require([
         var addCsvContactList = new SearchManager({
             "id": "addCsvContactList",
             "autostart": "false",
-            "search": `index="contacts_csv"
+            "search": `source="*contacts_csv*"
                         | dedup id
                         | rename first_name as FirstName, last_name as LastName, email as Email, phone_number as PhoneNumber
                         | table id, LastName, FirstName, Email, PhoneNumber
