@@ -71,13 +71,44 @@ QUnit.test("return the correct HTML for a valid list of MAC addresses", function
     assert.ok(expected === actual, "ok");
 });
 
-Qunit.test('return a HTML table given key-value data and headers', function(assert) {
-    const data = ['foo'];
-    const headers = ['bar'];
+QUnit.test('return a HTML table given key-value data and headers', function(assert) {
+    const data = [{
+        "brute_force": {},
+        "multi_logins_macs": {
+            "00-E1-8C-76-5C-73": 46,
+            "14-BD-61-9C-7E-39": 43,
+            "2C-61-F6-33-5C-BC": 43,
+            "34-42-62-11-3F-11": 40,
+            "38-89-2C-28-71-BD": 39
+        },
+        "num_alerts": {
+            "24_hrs": 0
+        },
+        "num_alerts_per_cat": {
+            "brute_force": 423,
+            "multi_logins": 462
+        },
+        "user_threat_count": {
+            "21150686": 46,
+            "22430786": 43,
+            "00031115": 43,
+            "00060691": 43,
+            "00078323": 44
+        }
+    }];
+    const headers = ["MAC Address", "Count"];
 
-    let actual = helper.BuildHTMLTable(data, headers);
-
-    let expected = 'foobar';
+    let actual = helper.buildHTMLTable(data, headers);
+    console.log(actual);
+    let expected =
+				    `
+					<table class='statistics-table'><tr><th> MAC Address </th><th> Count </th></tr>
+						<tr>
+							<td>0</td>
+							<td>//STUFF</td>
+						</tr>
+					</table>
+					`;
 
     assert.ok(expected === actual, 'ok');
 })
