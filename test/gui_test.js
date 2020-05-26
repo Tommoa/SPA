@@ -13,11 +13,13 @@ async function open_page(driver, page) {
 	});
 }
 
+//Test Configure API page
 async function test_configure_page(driver, url) {
 	await driver.wait(until.elementLocated(By.xpath("//div[@id='base-url']//input"))).sendKeys(url, Key.ENTER);
 	await driver.sleep(2000);
 }
 
+//Test datastore pages
 async function test_datastore_pages(driver) {
 	//Click 'Refresh CSV Folder' button and wait for content
 	await driver.wait(until.elementLocated(By.xpath("//div[@id='addcsv_btn']/button"))).click();
@@ -53,7 +55,7 @@ async function test_search_page(driver, search_type, search_string) {
 	await driver.sleep(1000);
 }
 
-//Test map page
+//Test Map page
 async function test_map_page(driver) {
 	//Wait for map to load
 	try {
@@ -64,6 +66,7 @@ async function test_map_page(driver) {
 	await driver.sleep(2000);
 }
 
+//Test Alert List page
 async function test_alert_page(driver) {
 	//Check the alerts table loads
 	try {
@@ -74,6 +77,7 @@ async function test_alert_page(driver) {
 	await driver.sleep(2000);
 }
 
+//Test Dashboard page
 async function test_dashboard_page(driver) {
 	//Check that the payload from TIM is loaded
 	let we = await driver.wait(
