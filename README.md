@@ -88,19 +88,20 @@ Unit tests can be found in the /SPA/test/ folder. The tests are performed using 
 >npm install amd-loader
 
 Run the tests in command line in the root SPA directory.
->qunit
+>qunit test/test.js
 
 This will result in the following output for successful tests.
 
 ```
-$ qunit
+$ qunit test/test.js
 TAP version 13
 ok 1 return a formatted date given a valid date object
 ok 2 return the correct HTML of a profile-container for a valid dataset
 ok 3 return the correct string given a longer string to split
 ok 4 return the correct HTML for a valid list of MAC addresses
-1..4
-# pass 4
+ok 5 return a HTML table given key-value data and headers
+1..5
+# pass 5
 # skip 0
 # todo 0
 # fail 0
