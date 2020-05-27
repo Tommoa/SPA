@@ -36,8 +36,8 @@ async function test_datastore_pages(driver) {
 //Test search pages
 async function test_search_page(driver, search_type, search_string) {
 	//Enter search string and from time
-	await driver.wait(until.elementLocated(By.css(search_type))).sendKeys(search_string);
-	await driver.findElement(By.xpath("//div[@id='from']//input")).sendKeys('01012010', Key.ENTER);
+	await driver.findElement(By.xpath("//div[@id='from']//input")).sendKeys('01012010');
+	await driver.wait(until.elementLocated(By.css(search_type))).sendKeys(search_string, Key.ENTER);
 
 	//Click on profile card and wait for modal to load before closing
 	await driver.wait(until.elementLocated(By.id('profile-container'))).click();
