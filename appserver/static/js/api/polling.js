@@ -30,8 +30,7 @@ define(function (require, exports, module) {
   
   function retrieveBaseURL() {
     const cookies = document.cookie;
-    const delimiter = "; ";
-    const baseURL = helper.splitString("baseURL", cookies, delimiter);
+    const baseURL = helper.splitString("baseURL", cookies);
   
     if (baseURL === undefined) {
       console.dir("BASE_URL has not been set, using default URL");
